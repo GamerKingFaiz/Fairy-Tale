@@ -1,8 +1,49 @@
 <!DOCTYPE html>
 <html>
-<body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
-<p>More to come soon...</p>
-</body>
+    <head>
+        <title>The Tortoise and the Hare</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="css/main.css">
+        <link href="https://fonts.googleapis.com/css?family=Coming+Soon" rel="stylesheet">
+        <script src="js/velocity.min.js"></script>
+        <script src="js/TweenMax.min.js"></script>
+        <script src="js/ScrollMagic.min.js"></script>
+        <script src="js/plugins/animation.velocity.min.js"></script>
+        <script src="js/plugins/animation.gsap.min.js"></script>
+        <script src="js/plugins/debug.addIndicators.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    </head>
+
+    <body>
+        <script>
+            // init controller
+            var controller = new ScrollMagic.Controller();
+        </script>
+        <div id="title" class="fullViewport">
+            <h1 class="center">The Tortoise and the Hare</h1>
+        </div>
+        <div class="spacer s10"></div>
+        <div id="my-sticky-element" class="box1">
+            <p style="color:white;">test box!</p>
+        </div>
+        <div class="spacer s10"></div>
+        <script>
+            // create a scene
+            new ScrollMagic.Scene({duration: 500, triggerElement: "#my-sticky-element"})
+                .setPin("#my-sticky-element") // pins the element for the the scene's duration
+                .addTo(controller) // assign the scene to the controller
+                .addIndicators();
+        </script>
+        <div id="my-sticky-element2" class="box1">
+            <p style="color:white;">test box!</p>
+        </div>
+        <div class="spacer s10"></div>
+        <script>
+            // create a scene
+            new ScrollMagic.Scene({duration: 500, triggerElement: "#my-sticky-element2"})
+                .setPin("#my-sticky-element2") // pins the element for the the scene's duration
+                .addTo(controller) // assign the scene to the controller
+                .addIndicators();
+        </script>
+    </body>
 </html>
