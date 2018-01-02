@@ -15,35 +15,69 @@
     </head>
 
     <body>
+        <!-- Title section -->
+        <section id="title" class="fs">
+            <h1 class="center">The Tortoise and the Hare</h1>
+        </section>
+        <!-- <script>
+            // create a scene
+            var scene = new ScrollMagic.Scene({duration: "100%"})
+            .setPin("#title")
+            .addTo(controller)
+            .addIndicators();
+        </script> -->
+
+        <!-- Scene 1 -->
+        <section id="page1" class="fs">
+            <div class="box1 center slideInUp">
+                <img src="assets/hare.png" alt="" srcset="">
+            </div>
+        </section>
+
+        <section id="page2" class="fs">
+            <div class="box1 center slideInUp">
+                <p class="slideInUp" style="color:white;">test box!</p>
+            </div>
+        </section>
+
         <script>
             // init controller
             var controller = new ScrollMagic.Controller();
-        </script>
-        <div id="title" class="fullViewport">
-            <h1 class="center">The Tortoise and the Hare</h1>
-        </div>
-        <div class="spacer s10"></div>
-        <div id="my-sticky-element" class="box1">
-            <p style="color:white;">test box!</p>
-        </div>
-        <div class="spacer s10"></div>
-        <script>
-            // create a scene
-            new ScrollMagic.Scene({duration: 500, triggerElement: "#my-sticky-element"})
-                .setPin("#my-sticky-element") // pins the element for the the scene's duration
-                .addTo(controller) // assign the scene to the controller
-                .addIndicators();
-        </script>
-        <div id="my-sticky-element2" class="box1">
-            <p style="color:white;">test box!</p>
-        </div>
-        <div class="spacer s10"></div>
-        <script>
-            // create a scene
-            new ScrollMagic.Scene({duration: 500, triggerElement: "#my-sticky-element2"})
-                .setPin("#my-sticky-element2") // pins the element for the the scene's duration
-                .addTo(controller) // assign the scene to the controller
-                .addIndicators();
+
+            // get all triggers - headers of all 2 slides
+            var pages = ["#page1", "#page2"];
+
+            // SCENE 1
+            // create scenes for each of the headers
+            pages.forEach(function (page, index) {
+                
+                // number for highlighting scenes
+                var num = index+1;
+
+                // make scene
+                var pageScene = new ScrollMagic.Scene({
+                    // duration: "50%",
+                    triggerElement: page, // trigger CSS animation when header is in the middle of the viewport 
+                    offset: 200 // offset triggers the animation 95px earlier than middle of the viewport, adjust to your liking
+                })
+                .setClassToggle('#page'+num, 'is-active') // set class to active slide
+                // .setPin(div)
+                .addIndicators() // add indicators (requires plugin), use for debugging
+                .addTo(controller);
+            });
+            
+            // // create a scene
+            // new ScrollMagic.Scene({duration: "100%", triggerElement: "#page02"})
+            //     .setPin("#page02")
+            //     .addTo(controller)
+            //     .addIndicators();
+            // var slides = document.querySelectorAll("section.page");
+            // for (var i=0; i<slides.length; i++) {
+            //     new ScrollMagic.Scene({triggerElement: slides[i]})
+            //     .setPin(slides[i])
+            //     .addTo(controller)
+            //     .addIndicators();
+            // }
         </script>
     </body>
 </html>
