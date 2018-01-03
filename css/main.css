@@ -57,20 +57,40 @@ h1 {
 	text-align: center;
 	padding: 0px 20px;
 }
-
-.fullViewport {
-	position: relative;
+section {
 	height: 100%;
-	width: 100%;	
 	background: linear-gradient(to right, rgba(255,255,0,0.15) 0%,rgba(247,148,30,0) 50%, rgba(0,174,239,0.15) 100%), linear-gradient(to top, rgba(255,255,0,0.3) 0%,rgba(247,148,30,0) 50%, rgba(0,174,239,0.15) 100%), url('../assets/pattern.png');
+}
+.slideInUp {
+	visibility: hidden;
+	opacity: 0;
+	-webkit-transition: all 0.7s ease-out;
+			transition: all 0.7s ease-out;
+	-webkit-transform: translate3d(0, 50px, 0);
+	transform: translate3d(0, 50px, 0);
+}
+.is-active .slideInUp {
+	visibility: visible;
+	opacity: 1;
+	-webkit-transform: translate3d(0, 0, 0);
+	transform: translate3d(0, 0, 0);
 }
 .center {
 	position: absolute;
 	top: 50%;
-    left: 50%;
-	transform: translateX(-50%) translateY(-50%);
+	transform:translateY(-50%);
 	width: 100%;
-} 
+	text-align: center;
+}
+.center .noSM {
+	left: 50%;
+	transform: translateX(-50%);
+}
+.fs /* full screen */ {
+	position: relative;
+	height: 100%;
+	widows: 100%;
+}
 
 /* Scroll Magic CSS */
 .spacer {
